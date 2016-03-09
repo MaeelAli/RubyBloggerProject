@@ -2,7 +2,12 @@
 
 <ul>
 	<% @tag.articles.each do |article| %>
-		<li><%= link_to article.title, article_path(article) %></li>
+		<li>
+			<%= link_to article.title, article_path(article) %>
+			<% if article.image.exists? %>
+				<%= image_tag article.image.url(:thumb) %>
+			<% end %>
+		</li>
 
 	<% end %>
 </ul>
