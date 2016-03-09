@@ -4,6 +4,9 @@
 	<% @articles.each do |article| %>
 		<li>
 			<%= link_to article.title, article_path(article), class: 'article_title' %>
+			<% if article.image.exists? %>
+				<%= image_tag article.image.url(:thumb) %>
+			<% end %>
 		</li>
 	<% end %>
 </ul>
